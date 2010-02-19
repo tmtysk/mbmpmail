@@ -1,0 +1,20 @@
+MbMpMail
+========
+
+MbMpMail is a simple utility class to handle multipart-mail (such as deco-mail(TM)) for mobile phone in Japan.
+
+* features:
+  * Parsing and reorganizing the instance of TMail::Mail.
+  * Converting MIME-structure to Docomo, Au and SoftBank.
+
+* Use with:
+  * TMail
+
+* Usage:
+  mail = TMail::Mail.parse(File.read("/path/to/message"))
+  m = MbMpMail.new(mail)
+  dm = m.to_docomo_format   #=> deco-mail format
+  am = m.to_au_format       #=> decoration-mail format
+  sm = m.to_softbank_format #=> decore-mail format
+    
+Copyright (c) 2010 tmtysk, released under the MIT license.
