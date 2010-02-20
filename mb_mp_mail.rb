@@ -68,8 +68,8 @@ class MbMpMail
       html_part.content_type = "text/html; charset=\"Shift_JIS\""
       html_part.transfer_encoding = "base64"
       html_part.content_disposition = nil
-      @html_body.gsub!(/<META[^>]*>/i, "<META http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">")
-      html_part.body = [NKF.nkf("-s", @html_body)].pack("m")
+      html_body = @html_body.gsub(/<META[^>]*>/i, "<META http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">")
+      html_part.body = [NKF.nkf("-s", html_body)].pack("m")
 
       rel_part = TMail::Mail.new
       rel_part.body = ""
@@ -110,8 +110,8 @@ class MbMpMail
       html_part.content_type = "text/html; charset=\"iso-2022-jp\""
       html_part.transfer_encoding = "base64"
       html_part.content_disposition = nil
-      @html_body.gsub!(/<META[^>]*>/i, "<META http-equiv=\"Content-Type\" content=\"text/html; charset=iso-2022-jp\">")
-      html_part.body = [NKF.nkf("-j", @html_body)].pack("m")
+      html_body = @html_body.gsub(/<META[^>]*>/i, "<META http-equiv=\"Content-Type\" content=\"text/html; charset=iso-2022-jp\">")
+      html_part.body = [NKF.nkf("-j", html_body)].pack("m")
 
       alt_part = TMail::Mail.new
       alt_part.body = ""
@@ -147,8 +147,8 @@ class MbMpMail
       html_part.content_type = "text/html; charset=\"UTF-8\""
       html_part.transfer_encoding = "base64"
       html_part.content_disposition = nil
-      @html_body.gsub!(/<META[^>]*>/i, "<META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">")
-      html_part.body = [NKF.nkf("-w", @html_body)].pack("m")
+      html_body = @html_body.gsub(/<META[^>]*>/i, "<META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">")
+      html_part.body = [NKF.nkf("-w", html_body)].pack("m")
 
       rel_part = TMail::Mail.new
       rel_part.body = ""
